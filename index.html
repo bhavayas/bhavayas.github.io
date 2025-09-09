@@ -18,7 +18,7 @@
       <a href="#home">Home</a>
       <a href="#projects-section">Projects</a>
       <a href="https://www.linkedin.com/in/bhavaya-shah/" target="_blank">LinkedIn</a>
-      <a href="#Contact">Contact</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
@@ -26,7 +26,7 @@
   <div class="img-background">
     <img src="images/grad.jpg" alt="Bhavaya Shah" class="profile-image" />
     <p class="name">Bhavaya Shah</p>
-    <p class="title">Mechanical Engineer | Design Engineer</p>
+    <p class="title">Geoergia Tech Mechanical Engineer | Design Engineer</p>
         <p class="subtitle">
       <button id="summaryBtn" class="summary-button">
         2 minute summary
@@ -34,23 +34,48 @@
     </p>
     <!-- 2 Minute Summary-->
     <div id="summaryModal" class="modal">
-      <div class="modal-content">
+      <div class="modal-content summary-flex">
         <span class="close">&times;</span>
-        <h2>Summary BLAH BLAH</h2>
-        <p>Hello! My name is Bhavaya and I am a recent graduate from The Georgia
-          Institute of Technology with a degree in
-          <strong>Mechanical Engineering</strong>. I have professional experience in
-          the <strong>manufacturing</strong> and
-          <strong>process</strong> industries, where I have honed my skills in
-          design, analysis, and project management.</p>
+        <div class="summary-text">
+        <h2>Summary</h2>
+        <p class="bullettitles"> Background</p>
+        <ul class="bulletpoints">
+          <li>B.S. Mechanical Engineering from Georgia Tech</li>
+          <li>Engineer, dancer, and (amateur) artist</li>
+          <li> Grew up in Atlanta, GA</li>
+        </ul>
+        <p class="bullettitles"> What do I find valuable in a professional enviroment?</p>
+        <ul class="bulletpoints">
+          <li>Oppurtunities to develop technical and leadership skills</li>
+          <li>Exposure to challenging projects</li>
+          <li>Freedom to own projects and make decisions</li>
+        </ul>
+        <p class="bullettitles"> What skills do I bring?</p>
+          <ul class="bulletpoints">
+            <li> 4 years of CAD Design</li>
+            <li> 2 years in manufacturing</li>
+            <li> Leadership skills in cross-functional projects and leading projects from concept to execution</li>
+          </ul>
+        <p class="bullettitles"> What do I enjoy outside of work?</p>
+        <ul class="bulletpoints">
+          <li> Watercolor and Acrylic painting</li>
+          <li> Photography</li>
+          <li> Sunset Hikes and Traveling</li>
+        </ul>
+        </div>
+        <div class="summary-image">
+          <img src="images/watercolor.jpg">
+        </div>
       </div>
     </div>
     <!-- Scroll Down Arrow -->
      <a href="#Skills" class="scroll-down">
-      <img class="down-image" src="images/down.png"> </a>
-  <div id="Skills"> </div>
-
+      <img class="down-image" src="images/down.png">
+    <div class="down-caption"> Scroll for a deeper dive into my work!</div>
+   </a>
+    
   </div>
+  <div id="Skills"> </div>
 </section>
       <!--Resume Button-->
           <!--Skills Section-->
@@ -221,14 +246,14 @@
             <span class="text">Resume</span>
           </button>
         </a>
-  
       </section>
- <hr class="rounded-hr" />
- 
  </section>
-
-
-
+       <a href="#project-sec" class="scroll-down1">
+        <img class="down-image" src="images/down.png">
+        <div class="down-caption"> Scroll down to see projects I've worked on!</div>
+      </a>
+ <hr id="project-sec" class="rounded-hr" />
+  <p> <br> </p>
     <!--Projects-->
     <section id="projects-section" class="projects-section">
       <div class="projects-header">
@@ -300,6 +325,8 @@
             </div>
           </div>
         </div>
+
+
       </div>
 
       <!-- Project Details Container -->
@@ -759,8 +786,10 @@
    
           </div>
         </div> 
+
                
       </div>
+ 
 
           <script>
           const projectCards = document.querySelectorAll('.project-card');
