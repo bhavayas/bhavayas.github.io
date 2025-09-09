@@ -34,8 +34,9 @@ body {
 /* All of this is for the nav bar*/
 
 /* Background section */
+
 .background-image {
-  background-image: url("images/background.png");
+  background-image: url("../images/background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
