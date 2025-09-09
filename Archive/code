@@ -1,0 +1,171 @@
+    <script>
+       if (window.location.hash) {
+           window.location.hash = "";
+           window.scrollTo(0, 0);}
+      // JavaScript for handling project card clicks and transitions
+      document.addEventListener("DOMContentLoaded", function () {
+        const projectCards = document.querySelectorAll(".project-card");
+        const projectsSection = document.getElementById("projects-section");
+        const backButton = document.getElementById("backButton");
+        const selectedProjectName = document.querySelector(".selected-project-name");
+        const projectsGrid = document.querySelector(".projects-grid");
+        const projectDetail = document.getElementById("project-details");
+        const detailContainer = document.getElementById("detail-container");
+      
+        // Add smooth transitions to project cards
+        projectCards.forEach((card) => {
+          card.addEventListener("click", () => {
+            const projectTitle = card.getAttribute("data-project");
+            
+            // Add focused class for CSS animations
+            projectsSection.classList.add("focused");
+            // Hide the project title when card is clicked
+            selectedProjectName.textContent = "";
+            
+            // Show the project navbar
+            const projectNavbar = document.querySelector(".project-navbar");
+            projectNavbar.style.display = "flex";
+
+            const dataContainer = document.querySelector(
+              `#project-data [data-project="${projectTitle}"]`
+            );
+
+                         if (dataContainer) {
+               // Smooth transition: fade out grid, fade in details
+               projectsGrid.style.opacity = "0";
+               projectsGrid.style.transform = "scale(0.9)";
+               
+               setTimeout(() => {
+                 projectsGrid.style.display = "none";
+                 detailContainer.innerHTML = dataContainer.innerHTML;
+
+                 // Always show the overview tab and hide others
+            const allTabs = detailContainer.querySelectorAll('.project-tab-content');
+            allTabs.forEach(tab => {
+            tab.style.display = 'none';
+            tab.classList.add('hidden');
+            });
+            const overviewTab = detailContainer.querySelector('.project-tab-content[data-tab="overview"]');
+            if (overviewTab) {
+                overviewTab.style.display = 'block';
+                overviewTab.classList.remove('hidden');
+              }
+            // Always show the overview tab and hide others
+                 projectDetail.style.display = "block";
+                 
+                 // Initialize tab functionality for the copied content
+                 initializeTabSwitching();
+                 
+                 // Fade in project details with longer delay
+                 setTimeout(() => {
+                   projectDetail.style.opacity = "1";
+                   projectDetail.style.transform = "translateY(0)";
+                 }, 100);
+               }, 500);
+             }
+          });
+        });
+
+        backButton.addEventListener("click", () => {
+          // Smooth transition back to grid
+          projectDetail.style.opacity = "0";
+          projectDetail.style.transform = "translateY(30px)";
+          
+          setTimeout(() => {
+            projectDetail.style.display = "none";
+            projectsSection.classList.remove("focused");
+            selectedProjectName.textContent = "";
+            detailContainer.innerHTML = "";
+            
+            // Hide the project navbar
+            const projectNavbar = document.querySelector(".project-navbar");
+            projectNavbar.style.display = "none";
+            
+            // Show grid with smooth animation
+            projectsGrid.style.display = "flex";
+            projectsGrid.style.opacity = "0";
+            projectsGrid.style.transform = "scale(0.9)";
+            
+            setTimeout(() => {
+              projectsGrid.style.opacity = "1";
+              projectsGrid.style.transform = "scale(1)";
+            }, 150);
+          }, 700);
+        });
+
+        // Add hover effects for better interactivity
+        projectCards.forEach((card) => {
+          card.addEventListener("mouseenter", () => {
+            card.style.transform = "translateY(-5px)";
+            card.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
+          });
+          
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "translateY(0)";
+            card.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
+          });
+        });
+
+        // Tab switching functionality
+        function initializeTabSwitching() {
+          const navTabs = document.querySelectorAll(".nav-tab");
+          navTabs.forEach((tab) => {
+            tab.addEventListener("click", (e) => {
+              e.preventDefault();
+              
+              // Remove active class from all tabs
+              navTabs.forEach(t => t.classList.remove("active"));
+              
+              // Add active class to clicked tab
+              tab.classList.add("active");
+              
+              // Get the tab name
+              const tabName = tab.getAttribute("data-tab");
+              
+              // Hide all tab content within the detail container
+              const allTabContent = document.querySelectorAll("#detail-container .project-tab-content");
+              allTabContent.forEach(content => {
+                content.style.display = "none";
+                content.classList.add("hidden");
+              });
+              
+              // Show the selected tab content
+              const selectedContent = document.querySelector(`#detail-container [data-tab="${tabName}"]`);
+              if (selectedContent) {
+                selectedContent.style.display = "block";
+                selectedContent.classList.remove("hidden");
+                
+                // Smooth fade-in animation
+                setTimeout(() => {
+                  selectedContent.style.opacity = "1";
+                  selectedContent.style.transform = "translateY(0)";
+                }, 50);
+              }
+            });
+          });
+        }
+
+
+      });
+    </script>
+
+    <!-- Javascript Code-->
+    <script>
+      const modal = document.getElementById("summaryModal");
+      const btn = document.getElementById("summaryBtn");
+      const span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
