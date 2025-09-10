@@ -1278,3 +1278,87 @@ display: block;
     }
 
 
+/* Contact CSS */
+    .modal2 {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Modal Content */
+    .modal-content2 {
+      background-image: url("../images/summary.png");
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 90%;
+      max-width: 700px;
+      position: relative;
+      font-family: "Monaco", monospace;
+      animation: slideDown 0.3s ease;
+    }
+
+    /* Close Button */
+    .close2 {
+      color: #aaa;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .close2:hover {
+      color: #000;
+    }
+
+    /* Contact Layout inside Modal */
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .contact-form, .contact-info {
+      flex: 1 1 300px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+    }
+    button[type="submit"] {
+      margin-top: 0.5rem;
+      background: #333;
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background: #555;
+    }
+
+    /* Animation */
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Navbar link style */
+    .nav-link {
+      color: blue;
+      text-decoration: none;
+      cursor: pointer;
+      font-family: "Monaco", monospace;
+      font-size: 1.2rem;
+    }
+    .nav-link:hover {
+      text-decoration: none;
+    }
